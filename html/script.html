@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Hotel / Pousada</title>
+    <link rel="stylesheet" href="../css/script.css">
+</head>
+<body>
+
+    <h1>Sistema de Hotel / Pousada</h1>
+
+    <div class="bloco">
+        <h2>Cadastrar Quarto</h2>
+        <form id="formQuarto">
+            <label>Número do quarto:</label>
+            <input type="number" id="quartoNome">
+
+            <label>Tipo do quarto:</label>
+            <select id="quartoTipo">
+                <option value="Solteiro">Solteiro</option>
+                <option value="Casal">Casal</option>
+                <option value="Família">Família</option>
+                <option value="Luxo">Luxo</option>
+            </select>
+
+            <label>Preço da diária:</label>
+            <input type="number" id="quartoPreco">
+
+            <button type="submit">Salvar Quarto</button>
+        </form>
+    </div>
+
+    <div class="bloco">
+        <h2>Quartos Cadastrados</h2>
+        <div id="areaListaQuartos"></div>
+    </div>
+
+    <div class="bloco">
+        <h2>Cadastrar Reserva</h2>
+        <form id="formReserva">
+            <label>Selecione o quarto:</label>
+            <select id="reservaSelectQuarto"></select>
+
+            <label>Nome do hóspede:</label>
+            <input type="text" id="reservaHospede">
+
+            <label>Data do Check-in:</label>
+            <input type="date" id="reservaCheckin">
+
+            <label>Data do Check-out:</label>
+            <input type="date" id="reservaCheckout">
+
+            <button type="submit">Salvar Reserva</button>
+        </form>
+    </div>
+
+    <div class="bloco">
+        <h2>Reservas Registradas</h2>
+        <div id="areaListaReservas"></div>
+        
+    </div>
+
+    <!-- IMPORTAÇÃO DOS JS -->
+    <script src="../js/classes.js"></script>
+    <script src="../js/script.js"></script>
+
+</body>
+</html>
