@@ -76,22 +76,22 @@ function removerReserva(i){
 
 
 // atualiza select
-function atualizarSelectQuartos() {
-    let select = document.getElementById("reservaSelectQuarto");
-    select.innerHTML = "";
-
-    quartos.forEach(q => {
-        select.innerHTML += `<option value="${q.numero}">${q.toString()}</option>`;
-    });
-}
-
-function buscarQuarto(numero) {
-    return quartos.find(q => q.numero == numero);
-}
+function atualizarSelectQuartos(){
+        let select = document.getElementById("reservaSelectQuarto");
+        select.innerHTML = "";
+        quartos.forEach(q => {
+            const option = document.createElement("option");
+            option.value = q.numero;
+            option.textContent = q.toString();
+            select.appendChild(option);
+        });
+    }
+    
+    
 
 // cadastro do quarto
-document.getElementById("formQuarto").addEventListener("submit", function(e) {
-    e.preventDefault();
+document.getElementById("formQuarto").addEventListener("submit", function(cadastroQuarto) {
+    cadastroQuarto.preventDefault();
 
     let numero = document.getElementById("quartoNome").value;
     let tipo = document.getElementById("quartoTipo").value;
@@ -116,9 +116,9 @@ document.getElementById("formReserva").addEventListener("submit", function(cadas
     let checkin = document.getElementById("reservaCheckin").value;
     let checkout = document.getElementById("reservaCheckout").value;
 
-    let quartoEscolhido = buscarQuarto(numeroQuarto);
+    let quartoEncontrado = quartos.find(q => q.numero == numeroQuarto);
 
-    let reserva = new Reserva(quartoEscolhido, hospede, checkin, checkout);
+    let reserva = new Reserva(quartoEncontrado, hospede, checkin, checkout);
     reservas.push(reserva);
 
     salvarDados();
